@@ -1,0 +1,14 @@
+{
+  "all": "tudo",
+  "add": "adicionar",
+  "done": "concluído",
+  "pending": "pendente",
+  "delete": "apagar",
+  "change to pending": "mudar para pendente",
+  "mark as completed": "marcar como concluído",
+  "english_not_translate": "english",
+  "portuguese_not_translate": "português",
+  "search": "pesquisar",
+  "you don't have any tasks yet": "Você ainda não tem nenhuma tarefa",
+  "add a new item": "Adicione um novo item"
+}

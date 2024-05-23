@@ -1,24 +1,35 @@
 {
-  "name": "app-todo",
+  "name": "todo-list",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "json-server": "json-server --watch api/db.json --port 3000",
+    "dev": "concurrently \"yarn serve\" \"yarn json-server\""
   },
   "dependencies": {
+    "axios": "^1.7.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-i18n": "^10.0.0-alpha.5",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "^5.0.8",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "json-server": "^1.0.0-beta.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   },
   "eslintConfig": {
     "root": true,
@@ -32,7 +43,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",

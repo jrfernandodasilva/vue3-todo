@@ -1,0 +1,14 @@
+{
+  "all": "all",
+  "add": "add",
+  "done": "done",
+  "pending": "pending",
+  "delete": "delete",
+  "change to pending": "change to pending",
+  "mark as completed": "mark as completed",
+  "english_not_translate": "english",
+  "portuguese_not_translate": "português",
+  "search": "search",
+  "you don't have any tasks yet": "You don't have any tasks yet",
+  "add a new item": "Add a new item"
+}
