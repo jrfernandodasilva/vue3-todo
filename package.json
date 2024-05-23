@@ -10,6 +10,7 @@
     "dev": "concurrently \"yarn serve\" \"yarn json-server\""
   },
   "dependencies": {
+    "@kyvg/vue3-notification": "^3.2.1",
     "axios": "^1.7.0",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
