@@ -62,59 +62,49 @@
 </div>
 </template>
 
-<script>
-import { reactive, toRefs } from 'vue'
+<script setup>
+import { defineProps, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useCapitalize } from '@/composables/capitalize'
 
-export default {
-  props: {
-    todo: {
-      type: Object,
-      default: () => {}
+const store = useStore()
+const props = defineProps({
+  todo: {
+    type: Object,
+    default: () => {}
+  }
+})
+
+const state = reactive({
+  title: props.todo.title,
+  isCompleted: props.todo.completed,
+  capitalize: useCapitalize
+})
+
+const updateTodo = () => {
+  const payload = {
+    id: props.todo.id,
+    data: {
+      title: state.title,
+      completed: state.isCompleted
     }
-  },
-  setup(props) {
-    const store = useStore()
-    const state = reactive({
-      title: props.todo.title,
-      isCompleted: props.todo.completed,
-      capitalize: useCapitalize
-    })
-
-    const onDelete = () => store.dispatch('todo/delete', props.todo.id)
-
-    const onCheckClick = () => {
-      state.isCompleted = !state.isCompleted
-      updateTodo()
-    }
-
-    const onTitleChange = () => {
-      if(!state.title) {
-        return
-      }
-
-      updateTodo()
-    }
-
-    const updateTodo = () => {
-      const payload = {
-        id: props.todo.id,
-        data: {
-          title: state.title,
-          completed: state.isCompleted
-        }
-      }
-
-      store.dispatch('todo/update', payload)
-    }
-
-    return {
-      ...toRefs(state),
-      onDelete,
-      onCheckClick,
-      onTitleChange
-    }
-  },  
+  }
+  store.dispatch('todo/update', payload)
 }
+
+const onDelete = () => store.dispatch('todo/delete', props.todo.id)
+
+const onCheckClick = () => {
+  state.isCompleted = !state.isCompleted
+  updateTodo()
+}
+
+const onTitleChange = () => {
+  if (!state.title) {
+    return
+  }
+  updateTodo()
+}
+
+const { title, isCompleted, capitalize } = toRefs(state)
 </script>
