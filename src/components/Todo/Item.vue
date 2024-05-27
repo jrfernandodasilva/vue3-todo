@@ -37,7 +37,11 @@
       </div>
 
       <div class="ml-auto flex items-center justify-center">
+
+        <Spinner v-show="showLoading" stroke-class="stroke-sky-700"/>
+
         <button 
+          v-show="!showLoading"
           class="focus:outline-none"
           @click="onDelete"
           :title="capitalize($t('delete'))"
@@ -66,6 +70,7 @@
 import { defineProps, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useCapitalize } from '@/composables/capitalize'
+import Spinner from '@/components/ui/Spinner'
 
 const store = useStore()
 const props = defineProps({
@@ -78,7 +83,8 @@ const props = defineProps({
 const state = reactive({
   title: props.todo.title,
   isCompleted: props.todo.completed,
-  capitalize: useCapitalize
+  capitalize: useCapitalize,
+  showLoading: false
 })
 
 const updateTodo = () => {
@@ -89,10 +95,16 @@ const updateTodo = () => {
       completed: state.isCompleted
     }
   }
+  state.showLoading = true
   store.dispatch('todo/update', payload)
+    .then(() => state.showLoading=false)
 }
 
-const onDelete = () => store.dispatch('todo/delete', props.todo.id)
+const onDelete = () => {
+  state.showLoading = true
+  store.dispatch('todo/delete', props.todo.id)
+    .then(() => state.showLoading=false)
+}
 
 const onCheckClick = () => {
   state.isCompleted = !state.isCompleted
@@ -106,5 +118,5 @@ const onTitleChange = () => {
   updateTodo()
 }
 
-const { title, isCompleted, capitalize } = toRefs(state)
+const { title, isCompleted, capitalize, showLoading } = toRefs(state)
 </script>
