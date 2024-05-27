@@ -2,6 +2,7 @@
   "all": "all",
   "add": "add",
   "done": "done",
+  "error": "Error",
   "pending": "pending",
   "delete": "delete",
   "success": "success",
@@ -15,5 +16,9 @@
   "portuguese_not_translate": "português",
   "search": "search",
   "you don't have any tasks yet": "You don't have any tasks yet",
-  "add a new item": "Add a new item"
+  "add a new item": "Add a new item",
+  "app-validations": {
+    "required-value": "The field cannot be empty",
+    "min-length": "Must contain at least {min} characters"
+  }  
 }

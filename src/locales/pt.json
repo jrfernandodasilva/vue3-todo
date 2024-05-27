@@ -2,6 +2,7 @@
   "all": "tudo",
   "add": "adicionar",
   "done": "concluído",
+  "error": "Erro",
   "pending": "pendente",
   "delete": "apagar",
   "success": "sucesso",
@@ -15,5 +16,9 @@
   "portuguese_not_translate": "português",
   "search": "pesquisar",
   "you don't have any tasks yet": "Você ainda não tem nenhuma tarefa",
-  "add a new item": "Adicione um novo item"
+  "add a new item": "Adicione um novo item",
+  "app-validations": {
+    "required-value": "O campo não pode ser vazio",
+    "min-length": "Deve conter no mínimo {min} caracteres"
+  } 
 }
