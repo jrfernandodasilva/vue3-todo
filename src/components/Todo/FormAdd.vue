@@ -10,46 +10,50 @@
       type="text"
       class="bg-gray-900 placeholder-gray-500 text-gray-500 font-light focus:outline-none block w-full appearance-none leading-normal py-3 pr-3"
     />
+    <Spinner v-show="showLoading" stroke-class="stroke-green-500"/>
     <button
+      v-show="!showLoading"
       class="text-green-400 text-xs font-semibold focus:outline-none uppercase"
       type="submit"
     >{{ $t('add') }}</button>
   </form>
 </template>
 
-<script>
+<script setup>
 import { reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
-export default {
-  
-  setup () {
-    const store = useStore();
-    const state = reactive({
-      title: ''
-    })
+import { useI18n } from 'vue-i18n'
+import { useCapitalize } from '@/composables/capitalize'
+import { useNotification } from '@kyvg/vue3-notification'
+import Spinner from '@/components/ui/Spinner'
 
-    const addTodo = () => {
-      if(!state.title){
-        return;
-      }
+const store = useStore()
+const { t } = useI18n()
 
-      store.dispatch('todo/add', {
-        title: state.title,
-        completed: false
-      })
-      .finally(() => {
-        clearTitle()
-      })
-    }
+const state = reactive({
+  title: '',
+  showLoading: false
+})
+const { notify } = useNotification()
 
-    const clearTitle = () => state.title = ''
-  
-    return {
-      ...toRefs(state),
-      addTodo,
-      clearTitle
-    }
-  },
+const addTodo = () => {
+  if (!state.title) {
+    return
+  }
+
+  state.showLoading = true
+  store.dispatch('todo/add', {
+    title: state.title,
+    completed: false
+  })
+  .finally(() => {
+    clearTitle()
+    state.showLoading = false
+    notify({ group:'general', type:'success', title: useCapitalize(t('success')), text:useCapitalize(t('todo added with success'))})
+  })
 }
-</script>
 
+const clearTitle = () => state.title = ''
+
+const { title, showLoading } = toRefs(state)
+</script>
