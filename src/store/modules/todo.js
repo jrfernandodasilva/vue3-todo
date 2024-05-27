@@ -64,7 +64,7 @@ const actions = {
         })
         .catch(() => {  // To run in Github Pages without json-server package
           setTimeout(() => {
-            commit('update', data)
+            commit('update', {...data, id})
             resolve()
           }, rootState.simulateLoadTime)
         })
