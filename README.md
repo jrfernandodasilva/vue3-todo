@@ -1,4 +1,4 @@
-# app-todo
+# To Do List
 
 ## Project setup
 ```bash
@@ -33,3 +33,14 @@ yarn json-server
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Node Version Requirement
+
+This project requires a minimum Node version of 18.
+
+## Technologies Used
+
+- Vue 3
+- Vuex
+- Tailwind CSS
+- @kyvg/vue3-notification
