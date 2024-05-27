@@ -8,20 +8,12 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import TodoItem from '@/components/Todo/Item'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 
-export default {
-  components: { TodoItem },
-  setup() {
-    const store = useStore();
-    const todos = computed(() => store.getters['todo/filtered'])
+const store = useStore();
+const todos = computed(() => store.getters['todo/filtered'])
 
-    return {
-      todos
-    }
-  }
-}
 </script>
