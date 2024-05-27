@@ -69,46 +69,39 @@
 </nav>
 
 </template>
-<script>
+
+<script setup>
 import { reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useCapitalize } from '@/composables/capitalize'
 
-export default {
-  setup() {
-    const store = useStore()
-    const state = reactive({
-      filter: store.state.todo.filter,
-      search: '',
-      capitalize: useCapitalize
-    })
+const store = useStore()
+const state = reactive({
+  filter: store.state.todo.filter,
+  search: '',
+  capitalize: useCapitalize
+})
 
-    const onFilter = () => {
-      store.dispatch('todo/filter', state.filter) 
-    }
-
-    const onSearch = (event) => {
-      if (event.key === 'Escape') {
-        state.search = '';
-      }
-
-      state.filter = state.search.length > 0 ? '' : 'all';
-      
-      if(['all', 'done', 'pending'].includes(state.search))
-      {
-        state.filter = state.search
-      }
-
-      store.dispatch('todo/filter', state.search) 
-    }
-
-    return {
-      ...toRefs(state),
-      onFilter,
-      onSearch
-    }
-  },
+const onFilter = () => {
+  store.dispatch('todo/filter', state.filter) 
 }
+
+const onSearch = (event) => {
+  if (event.key === 'Escape') {
+    state.search = '';
+  }
+
+  state.filter = state.search.length > 0 ? '' : 'all';
+  
+  if(['all', 'done', 'pending'].includes(state.search))
+  {
+    state.filter = state.search
+  }
+
+  store.dispatch('todo/filter', state.search) 
+}
+
+const {filter, search, capitalize } = toRefs(state)
 </script>
 
 <style scoped>
