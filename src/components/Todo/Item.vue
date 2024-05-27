@@ -69,10 +69,15 @@
 <script setup>
 import { defineProps, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 import { useCapitalize } from '@/composables/capitalize'
+import { useNotification } from '@kyvg/vue3-notification'
 import Spinner from '@/components/ui/Spinner'
 
 const store = useStore()
+const { t } = useI18n()
+const { notify } = useNotification()
+
 const props = defineProps({
   todo: {
     type: Object,
@@ -97,13 +102,19 @@ const updateTodo = () => {
   }
   state.showLoading = true
   store.dispatch('todo/update', payload)
-    .then(() => state.showLoading=false)
+    .then(() => {
+      state.showLoading=false
+      notify({ group:'general', type:'success', title: useCapitalize(t('success')), text:useCapitalize(t('todo updated with success'))})
+    })
 }
 
 const onDelete = () => {
   state.showLoading = true
   store.dispatch('todo/delete', props.todo.id)
-    .then(() => state.showLoading=false)
+    .then(() => {
+      state.showLoading=false
+      notify({ group:'general', type:'success', title: useCapitalize(t('success')), text:useCapitalize(t('todo deleted with success'))})
+    })
 }
 
 const onCheckClick = () => {
