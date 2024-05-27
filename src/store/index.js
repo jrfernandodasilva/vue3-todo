@@ -11,7 +11,9 @@ export default createStore({
     locales: {
       en: {title: 'english_not_translate', flag: 'us'}, 
       pt: {title: 'portuguese_not_translate', flag: 'br'}
-    }
+    },
+    notificationDuration: 5000,
+    simulateLoadTime: 1 * 1000, //; 1s
   },
   mutations: {
     setLocale(state, locale) {
