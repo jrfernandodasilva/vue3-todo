@@ -1,6 +1,6 @@
 <template>
   
-<nav class="block w-full max-w-screen-xl px-4 py-3 mx-auto text-white bg-gray-900">
+<nav class="block w-full px-4 py-3 mx-auto text-white bg-gray-900">
   <div class="flex justify-between items-center gap-4">
     <div class="flex gap-4">
       <!-- Input de rádio para All -->
