@@ -1,12 +1,16 @@
 <template>
-  <notifications class="mt-3 mr-3" group="global" position="top center" />
-  <notifications class="mt-3 mr-3" group="general" position="top right" />
-  <div class="px-3 py-10 md:px-10">
-    <div class="w-full sm:w-5/3 md:w-4/5 lg:w-2/3 mx-auto">
-      <LanguageSelector/>
-      <Spinner v-if="loading"/>
-      <Todo v-else/>   
-    </div>
+  <div>
+    <Header />
+    <main class="mt-16">
+      <notifications class="mt-16 mr-3" group="global" position="top center" />
+      <notifications class="mt-16 mr-3" group="general" position="top right" />
+      <div class="px-3 py-10 md:px-10">
+        <div class="w-full sm:w-5/3 md:w-4/5 lg:w-2/3 mx-auto">
+          <Spinner v-if="loading"/>
+          <Todo v-else/>   
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -14,7 +18,7 @@
 import { reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import Spinner from '@/components/ui/Spinner'
-import LanguageSelector from '@/components/layout/LanguageSelector'
+import Header from '@/components/layout/Header'
 import Todo from '@/components/Todo/TodoMain'
  
 const state = reactive({
