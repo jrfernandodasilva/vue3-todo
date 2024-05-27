@@ -1,4 +1,5 @@
 import axios from 'axios'
+import data from '/api/db.json'
 
 const state = () => ({
   all: [],
@@ -31,6 +32,7 @@ const actions = {
   all({commit}) {
     axios.get('http://localhost:3000/todos')
       .then(res => commit('storeAll', res.data))
+      .catch(() => commit('storeAll', data.todos)) // To run in Github Pages without json-server package
   },
     
   add({commit, rootState}, data) {
@@ -39,6 +41,12 @@ const actions = {
         .then((res) => {
           setTimeout(() => {
             commit('storeOne', res.data)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
+        .catch(() => {  // To run in Github Pages without json-server package
+          setTimeout(() => {
+            commit('storeOne', data)
             resolve()
           }, rootState.simulateLoadTime)
         })
@@ -54,6 +62,12 @@ const actions = {
             resolve()
           }, rootState.simulateLoadTime)
         })
+        .catch(() => {  // To run in Github Pages without json-server package
+          setTimeout(() => {
+            commit('update', data)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
     }) 
   },
 
@@ -62,6 +76,12 @@ const actions = {
       axios.delete(`http://localhost:3000/todos/${id}`)
         .then(() => {
           setTimeout(() => { 
+            commit('delete', id)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
+        .catch(() => {  // To run in Github Pages without json-server package
+          setTimeout(() => {
             commit('delete', id)
             resolve()
           }, rootState.simulateLoadTime)
