@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const state = () => ({
-  simulateLoadTime: 1 * 1000, //; 1s
   all: [],
   filter: 'all'
 });
@@ -31,24 +30,43 @@ const mutations = {
 const actions = {
   all({commit}) {
     axios.get('http://localhost:3000/todos')
-    .then(res => {        
-      commit('storeAll', res.data)        
-    })
+      .then(res => commit('storeAll', res.data))
   },
     
-  add({commit}, data) {
-    return axios.post('http://localhost:3000/todos', data)
-      .then(res => commit('storeOne', res.data))
+  add({commit, rootState}, data) {
+    return new Promise((resolve) => {  // Promise only to simulate endpoint response time
+      axios.post('http://localhost:3000/todos', data)
+        .then((res) => {
+          setTimeout(() => {
+            commit('storeOne', res.data)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
+    })
   },
   
-  update({commit}, {id, data}) {
-    return axios.put(`http://localhost:3000/todos/${id}`, data)
-      .then(res => commit('update', res.data))
+  update({commit, rootState}, {id, data}) {
+    return new Promise((resolve) => {  // Promise only to simulate endpoint response time
+      axios.put(`http://localhost:3000/todos/${id}`, data)
+        .then(res => {
+          setTimeout(() => {
+            commit('update', res.data)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
+    }) 
   },
 
-  delete({commit}, id) {
-    return axios.delete(`http://localhost:3000/todos/${id}`)
-      .then(() => commit('delete', id))
+  delete({commit, rootState}, id) {
+    return new Promise((resolve) => {  // Promise only to simulate endpoint response time
+      axios.delete(`http://localhost:3000/todos/${id}`)
+        .then(() => {
+          setTimeout(() => { 
+            commit('delete', id)
+            resolve()
+          }, rootState.simulateLoadTime)
+        })
+    }) 
   },
 
   filter({commit}, val) {
