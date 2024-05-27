@@ -24,11 +24,13 @@ import { reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 import { useCapitalize } from '@/composables/capitalize'
+import { useValidationRules } from '@/composables/validations'
 import { useNotification } from '@kyvg/vue3-notification'
 import Spinner from '@/components/ui/Spinner'
 
 const store = useStore()
 const { t } = useI18n()
+const { required, minLength, validateAll } = useValidationRules()
 
 const state = reactive({
   title: '',
@@ -37,8 +39,9 @@ const state = reactive({
 const { notify } = useNotification()
 
 const addTodo = () => {
-  if (!state.title) {
-    return
+  let valitaded = validateAll(state.title, required(), minLength(5))
+  if(valitaded !== true) {
+    return notify({ group:'general', type:'error', title: t('error'), text: valitaded})
   }
 
   state.showLoading = true
