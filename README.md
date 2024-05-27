@@ -45,3 +45,6 @@ This project requires a minimum Node version of 18.
 - Vue I18n
 - Tailwind CSS
 - @kyvg/vue3-notification
+
+## Link to the App
+[Vue 3 Todo App](https://jrfernandodasilva.github.io/vue3-todo/)
