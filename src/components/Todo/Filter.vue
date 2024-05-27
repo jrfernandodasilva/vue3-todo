@@ -83,7 +83,8 @@ const state = reactive({
 })
 
 const onFilter = () => {
-  store.dispatch('todo/filter', state.filter) 
+  store.dispatch('todo/filter', state.filter)
+    .then(() => state.search = '')
 }
 
 const onSearch = (event) => {
