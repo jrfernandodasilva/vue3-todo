@@ -42,5 +42,6 @@ This project requires a minimum Node version of 18.
 
 - Vue 3
 - Vuex
+- Vue I18n
 - Tailwind CSS
 - @kyvg/vue3-notification
