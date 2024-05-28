@@ -40,11 +40,13 @@ This project requires a minimum Node version of 18.
 
 ## Technologies Used
 
-- Vue 3
-- Vuex
-- Vue I18n
-- Tailwind CSS
-- @kyvg/vue3-notification
+- [Vue 3](https://vuejs.orgs) - The Progressive JavaScript Framework
+- [Vuex](https://vuex.vuejs.org) - Vuex is a state management pattern + library for Vue.js applications
+- [Vue I18n](https://vue-i18n.intlify.dev) - Internationalization plugin for Vue.js
+- [VueUse](https://vueuse.org) - Collection of Vue Composition Utilities
+- [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework packed 
+- [@kyvg/vue3-notification](https://kyvg.github.io/vue3-notification/?ref=madewithvuejs.com) - Trigger notifications for Vue.js
+- [JSON Server](https://github.com/typicode/json-server/tree/v0) - Get a full fake REST API with zero coding in less than 30 seconds
 
 ## Link to the App
 [Vue 3 Todo App](https://jrfernandodasilva.github.io/vue3-todo/)
