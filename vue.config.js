@@ -5,6 +5,9 @@ module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/vue3-todo/' : '/',
   transpileDependencies: true,
   configureWebpack: {
+    watchOptions: {
+      ignored: /node_modules|public|api/
+    },
     plugins: [
       new webpack.DefinePlugin({
         // Vue CLI is in maintenance mode, and probably won't merge my PR to fix this in their tooling
