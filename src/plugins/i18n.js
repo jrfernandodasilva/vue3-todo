@@ -4,6 +4,7 @@ import en from '@/locales/en.json';
 import pt from '@/locales/pt.json';
 
 const i18n = createI18n({
+  legacy: false,
   locale: store.state.locale,
   fallbackLocale: 'en',
   messages: {
