@@ -1,19 +1,19 @@
 <template>
   <form 
     @submit.stop.prevent="addTodo"
-    class="flex items-center px-4 bg-gray-900 h-15 rounded-sm border-l-2 border-green-400 mb-3"
+    class="flex items-center px-4 h-15 rounded-sm border-l-2 dark:bg-gray-900 dark:border-green-400 mb-3 bg-slate-300 border-amber-700"
   > 
     <input
       v-model.trim="title"
       @keyup.esc="clearTitle"
       :placeholder="$t('add a new item')+' ...'"
       type="text"
-      class="bg-gray-900 placeholder-gray-500 text-gray-500 font-light focus:outline-none block w-full appearance-none leading-normal py-3 pr-3"
+      class="dark:bg-gray-900 bg-slate-300 placeholder-slate-500 dark:text-gray-500 text-amber-700 dark:font-light focus:outline-none block w-full appearance-none leading-normal py-3 pr-3"
     />
-    <Spinner v-show="showLoading" stroke-class="stroke-green-500"/>
+    <Spinner v-show="showLoading" stroke-class="stroke-amber-700 dark:stroke-green-500"/>
     <button
       v-show="!showLoading"
-      class="text-green-400 text-xs font-semibold focus:outline-none uppercase"
+      class="text-xs font-semibold focus:outline-none uppercase dark:text-green-400 text-amber-700"
       type="submit"
     >{{ $t('add') }}</button>
   </form>

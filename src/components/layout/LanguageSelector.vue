@@ -1,11 +1,9 @@
 <template>
-  <div class="fixed right-6">
-    <select @change="changeLanguage" class="capitalize bg-gray-900 border border-gray-700 text-gray-100 py-2 px-4 rounded shadow">
-      <option v-for="(locale, key) in locales" :key="key" :value="key">
-        {{ capitalize($t(locale.title)) }}
-      </option>
-    </select>
-  </div>
+  <select @change="changeLanguage" class="capitalize py-2 px-4 cursor-pointer bg-gray-50 border border-amber-600 text-amber-700 text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+    <option v-for="(locale, key) in locales" :key="key" :value="key">
+      {{ capitalize($t(locale.title)) }}
+    </option>
+  </select> 
 </template>
 
 <script setup>

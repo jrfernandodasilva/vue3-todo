@@ -4,7 +4,7 @@
       <div class="flex items-center justify-center mr-2">
         <button 
           :class="{
-            'text-green-600': isCompleted,
+            'dark:text-green-600 text-amber-700': isCompleted,
             'text-gray-3k00': !isCompleted,
           }"
           @click="onCheckClick"
@@ -38,7 +38,7 @@
 
       <div class="ml-auto flex items-center justify-center">
 
-        <Spinner v-show="showLoading" stroke-class="stroke-sky-700"/>
+        <Spinner v-show="showLoading" stroke-class="stroke-amber-700 dark:stroke-sky-700"/>
 
         <button 
           v-show="!showLoading"

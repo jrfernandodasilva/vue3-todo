@@ -1,14 +1,29 @@
 <template>
-  <header class="fixed top-0 left-0 w-full bg-gray-900 text-gray-100 shadow-md py-4 px-6 z-10">
+  <header class="fixed top-0 left-0 w-full bg-white dark:bg-slate-900 dark:text-gray-100 shadow-md py-3 px-6 z-10">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-semibold">To Do List</h1>
-      <LanguageSelector :locales="locales" v-model="currentLocale" @change="changeLanguage" />
+
+      <!-- Items on the left -->
+      <div class="flex items-center">
+        <h1 class="text-xl font-semibold text-amber-600 dark:text-white">To Do List</h1>
+      </div>
+
+      <!-- Items on the right -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center">
+          <ThemeToggle />
+        </div>
+        <div class="flex items-center">
+          <LanguageSelector :locales="locales" v-model="currentLocale" @change="changeLanguage" />
+        </div>
+      </div>
+
     </div>
   </header>
 </template>
 
 <script setup>
 import LanguageSelector from '@/components/layout/LanguageSelector.vue';
+import ThemeToggle from '@/components/layout/ThemeToggle.vue';
 import { computed, reactive, toRefs } from 'vue';
 import { useStore } from 'vuex';
 
