@@ -15,7 +15,8 @@ const i18n = createI18n({
 
 store.watch(
   (state) => state.locale,
-  (newLocale) => i18n.global.locale = newLocale
-)
+  (newLocale) => i18n.global.locale.value = newLocale,
+  {deep: true}
+);
 
-export default i18n
+export default i18n;
