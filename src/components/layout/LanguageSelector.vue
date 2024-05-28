@@ -1,5 +1,5 @@
 <template>
-  <select @change="changeLanguage" class="capitalize py-2 px-4 cursor-pointer bg-gray-50 border border-amber-600 text-amber-700 text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+  <select v-model="currentLocale" class="capitalize py-2 px-4 cursor-pointer bg-gray-50 border border-amber-600 text-amber-700 text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
     <option v-for="(locale, key) in locales" :key="key" :value="key">
       {{ capitalize($t(locale.title)) }}
     </option>
@@ -31,10 +31,6 @@ const currentLocale = computed({
     .then(() => notify({ group:'global', type:'info', title: useCapitalize(t('success')), text:t('language changed with success')}) )        
   },
 })
-
-const changeLanguage = (event) => {
-  currentLocale.value = event.target.value;
-}
 
 const { locales, capitalize } = toRefs(state)
 </script>
