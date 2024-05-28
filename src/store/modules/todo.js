@@ -1,4 +1,4 @@
-import axios from 'axios'
+import apiClient from '@/plugins/axios.js';
 import data from '/api/db.json'
 
 const state = () => ({
@@ -30,14 +30,14 @@ const mutations = {
 
 const actions = {
   all({commit}) {
-    axios.get('http://localhost:3000/todos')
+    apiClient.get('/todos')
       .then(res => commit('storeAll', res.data))
       .catch(() => commit('storeAll', data.todos)) // To run in Github Pages without json-server package
   },
     
   add({commit, rootState}, data) {
     return new Promise((resolve) => {  // Promise only to simulate endpoint response time
-      axios.post('http://localhost:3000/todos', data)
+      apiClient.post('/todos', data)
         .then((res) => {
           setTimeout(() => {
             commit('storeOne', res.data)
@@ -55,7 +55,7 @@ const actions = {
   
   update({commit, rootState}, {id, data}) {
     return new Promise((resolve) => {  // Promise only to simulate endpoint response time
-      axios.put(`http://localhost:3000/todos/${id}`, data)
+      apiClient.put(`/todos/${id}`, data)
         .then(res => {
           setTimeout(() => {
             commit('update', res.data)
@@ -73,7 +73,7 @@ const actions = {
 
   delete({commit, rootState}, id) {
     return new Promise((resolve) => {  // Promise only to simulate endpoint response time
-      axios.delete(`http://localhost:3000/todos/${id}`)
+      apiClient.delete(`/todos/${id}`)
         .then(() => {
           setTimeout(() => { 
             commit('delete', id)
