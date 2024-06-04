@@ -10,5 +10,3 @@ createApp(App)
   .use(i18n)
   .use(Notifications)
   .mount('#app')
-
-  console.log('->>>>>> env variables', process.env);
