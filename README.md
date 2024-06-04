@@ -31,6 +31,55 @@ yarn json-server
 ```
 > Json Server docs - https://github.com/typicode/json-server
 
+## Docker Compose
+
+### Build
+```bash
+docker compose build app-prod
+```
+
+### Run
+```bash
+# development mode with hot reload
+# access: http://localhost:8080
+docker compose up -d app
+
+# production mode with static build files
+# access: http://localhost:8001
+docker compose up -d app-prod
+```
+
+## Docker
+
+### Build
+```bash
+docker build -t vue3-todo:unstable . --no-cache
+```
+
+### Run
+```bash
+# without volume
+docker run -d -p 8080:80 --name vue3-todo-app vue3-todo:unstable
+
+# with volume
+docker run -d -p 8080:80 -v $(pwd):/app --name vue3-todo-app vue3-todo:unstable
+```
+
+### Access container
+```bash
+docker exec -it vue3-todo-app sh 
+```
+
+### See logs
+```bash
+docker logs vue3-todo-app
+```
+
+### Stop and remove
+```bash
+docker stop vue3-todo-app && docker rm vue3-todo-app
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
