@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack');
 
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV === 'production' ? '/vue3-todo/' : '/',
+  publicPath: process.env.GITHUB_ACTIONS === 'true' ? '/vue3-todo/' : '/',
   transpileDependencies: true,
   configureWebpack: {
     watchOptions: {
