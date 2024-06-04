@@ -1,0 +1,28 @@
+services:
+  app:  
+    image: node:20.14.0-alpine
+    command: sh -c "yarn install --frozen-lockfile && yarn dev"
+    platform: "linux/amd64"
+    container_name: vue3-todo-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+      - "3000:3000"
+    restart: always
+    environment:
+      - NODE_ENV=development
+  app-prod: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vue3-todo:unstable
+    platform: "linux/amd64"
+    container_name: vue3-todo-prod
+    ports:
+      - "8001:80"
+    restart: always
+    environment:
+      - NODE_ENV=production
+ 
