@@ -93,6 +93,7 @@ This project requires a minimum Node version of 18.
 - [Vuex](https://vuex.vuejs.org) - Vuex is a state management pattern + library for Vue.js applications
 - [Vue I18n](https://vue-i18n.intlify.dev) - Internationalization plugin for Vue.js
 - [VueUse](https://vueuse.org) - Collection of Vue Composition Utilities
+- [@vue/cli-plugin-pwa](https://cli.vuejs.org/core-plugins/pwa.html) - Plugin for Vue CLI that helps you create Progressive Web Apps (PWAs)
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework packed 
 - [@kyvg/vue3-notification](https://kyvg.github.io/vue3-notification/?ref=madewithvuejs.com) - Trigger notifications for Vue.js
 - [JSON Server](https://github.com/typicode/json-server/tree/v0) - Get a full fake REST API with zero coding in less than 30 seconds
