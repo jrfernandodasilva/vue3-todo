@@ -16,4 +16,9 @@ module.exports = defineConfig({
       })
     ],
   },
+  pwa: {
+    name: 'To Do List',
+    assetsVersion: 'v1',
+    appleMobileWebAppStatusBarStyle: 'black',
+  }
 })
