@@ -4,6 +4,7 @@
     <main class="mt-16">
       <notifications class="mt-16 mr-3" group="global" position="top center" />
       <notifications class="mt-16 mr-3" group="general" position="top right" />
+      <PWAPrompt/>
       <div class="px-3 py-10 md:px-10">
         <div class="w-full sm:w-5/3 md:w-4/5 lg:w-2/3 mx-auto">
           <Spinner v-if="loading"/>
@@ -20,6 +21,7 @@ import { useStore } from 'vuex'
 import Spinner from '@/components/ui/Spinner'
 import Header from '@/components/layout/Header'
 import Todo from '@/components/Todo/TodoMain'
+import PWAPrompt from '@/components/layout/PWAPrompt'
  
 const state = reactive({
   loading: true

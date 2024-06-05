@@ -6,6 +6,8 @@
   "pending": "pending",
   "delete": "delete",
   "success": "success",
+  "Install": "Install",
+  "Install right now": "Install right now",
   "todo added with success": "todo added with success",
   "todo updated with success": "todo updated with success",
   "todo deleted with success": "todo deleted with success",
