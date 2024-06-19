@@ -1,5 +1,17 @@
 # To Do List
 
+[![License](https://img.shields.io/github/license/jrfernandodasilva/vue3-todo.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-v3.2.13-green.svg?style=flat-square)](https://vuejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=flat&logo=google-chrome&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Downloads](https://img.shields.io/github/downloads/jrfernandodasilva/golang-roadmap/total.svg?v1)](https://github.com/jrfernandodasilva/golang-roadmap/releases)
+[![Contributors](https://img.shields.io/github/contributors/jrfernandodasilva/vue3-todo.svg)](https://github.com/jrfernandodasilva/vue3-todo/graphs/contributors)
+[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://github.com/jrfernandodasilva/vue3-todo/wiki)
+[![Last Update](https://img.shields.io/github/last-commit/jrfernandodasilva/vue3-todo.svg)](https://github.com/jrfernandodasilva/vue3-todo/commits/main)
+
 ## Project setup
 ```bash
 yarn install
